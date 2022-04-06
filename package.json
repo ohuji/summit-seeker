@@ -1,0 +1,23 @@
+{
+  "name": "summit-seeker",
+  "version": "1.0.0",
+  "description": "A website for mountaineers",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohuji/summit-seeker.git"
+  },
+  "author": "Juho Salomäki & Remy Silanto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohuji/summit-seeker/issues"
+  },
+  "homepage": "https://github.com/ohuji/summit-seeker#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
