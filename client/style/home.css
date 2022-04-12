@@ -7,14 +7,17 @@
     box-sizing: border-box;
 }
 
+
 h1, h2, h3 {
     font-family: 'Alfa Slab One', cursive;
     font-weight: 100;
 }
 
+
 p   {
     font-family: 'Open Sans', sans-serif;
 }
+
 
 li  {
     font-family: 'Open Sans', sans-serif;
@@ -32,7 +35,7 @@ body    {
 
 
 main    {
-    padding: 1vh;
+    padding: 0;
     margin: auto;
 }
 
@@ -103,9 +106,8 @@ aside   {
     flex: 0.7;
     flex-direction: row;
     text-align: center;
-    padding-top: 2vh;
     color: #23CE6B;
-    font-size: 1.5em;
+    font-size: 1.4em;
     background-color: #1E1E24;
     border-left: #1E1E24 solid 1vh;
     border-right: #1E1E24 solid 1vh;
@@ -121,10 +123,10 @@ aside h3    {
 .locationsList li   {
     background-color: #FE6D73 ;
     color: #19181A;
-    padding-top: 1.25vh;
-    padding-bottom: 1.25vh;
-    border-top: #1E1E24 solid 0.5vh;
-    border-bottom: #1E1E24 solid 0.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-top: #1E1E24 solid 0.4vh;
+    border-bottom: #1E1E24 solid 0.4vh;
 }
 
 /*------------Right-side------------*/
@@ -137,7 +139,7 @@ aside h3    {
 
 section {
     flex-basis: 40vh;
-    background: url(../media/mountains.jpg) no-repeat bottom fixed;
+    background: url(../media/mountains.jpg) no-repeat center -200px fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
