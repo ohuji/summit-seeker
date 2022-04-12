@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# WebStorms thingy 
+.idea/*
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
