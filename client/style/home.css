@@ -35,6 +35,7 @@ body    {
 
 
 main    {
+    background-color: #1E1E24;
     padding: 0;
     margin: auto;
 }
@@ -44,6 +45,9 @@ main    {
 
 header  {
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     justify-content: space-between;
     align-items: center;
     height: 19vh;
@@ -103,6 +107,9 @@ aside   {
     align-self: flex-start;
     */
     /*height: 100vh;*/
+    position: sticky;
+    align-self: flex-start;
+    top: 19%;
     flex: 0.7;
     flex-direction: row;
     text-align: center;
@@ -127,6 +134,10 @@ aside h3    {
     padding-bottom: 1vh;
     border-top: #1E1E24 solid 0.4vh;
     border-bottom: #1E1E24 solid 0.4vh;
+}
+
+#recentList {
+    list-style-type: none;
 }
 
 /*------------Right-side------------*/
@@ -165,6 +176,45 @@ section {
     word-break: break-all;
 }
 
+.leftArticle h2 {
+    text-align: center;
+}
+
+.rightArticle h2 {
+    text-align: center;
+}
+
+#popularList {
+    list-style-type: none;
+}
+
+#post {
+    border: 1px solid #1E1E24;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 9px 10px 5px -5px rgba(0,0,0,0.22);
+    display: flex;
+
+}
+
+#post-username {
+    flex: 1;
+    margin-left: 10px;
+}
+
+#post-title {
+    flex: 2;
+}
+
+#post-content {
+    display: none;
+}
+
+.active {
+    display: block;
+}
 
 /*--------------Footer-----------------*/
 

@@ -5,95 +5,77 @@ const url = 'http://localhost:3030';
 const popularList = document.querySelector('#popularList');
 const recentList = document.querySelector('#recentList');
 
+const getMostPopular = async () => {
+  try {
+    const res = await fetch(`${url}/popular`);
 
-const popularCardsAssembly = (mostPopular) => {
-
-  // Clears the popularList
-  popularList.innerHTML = '';
-
-  mostPopular.forEach((Userposts) => {
-
-    // Post title
-    const h2Element = document.createElement('h2');
-    h2Element.innerHTML = Userposts.Title;
-
-    // Description
-    const para1Element = document.createElement('p');
-    para1Element.innerHTML = `Description: ${Userposts.Description}`;
-
-    // Equipment
-    const para2Element = document.createElement('p');
-    para2Element.innerHTML = `Equipment: ${Userposts.Equipment}`;// Equipment
-
-    // Image
-    const imgElement = document.createElement('img');
-    imgElement.src = url + '/' + Userposts.Imagename;
-    imgElement.alt = Userposts.Title;
-    const figureElement document.createElement('figure').appendChild(imgElement);
-
-    // Timestamp
-    const para3Element = document.createElement('p');
-    para3Element.innerHTML = `Posted: ${Userposts.Posted}`;
-
-    // Likes
-    const para4Element = document.createElement('p');
-    para4Element.innerHTML = `Likes: ${Userposts.Likes}`;
-
-    // Dislikes
-    const para5Element = document.createElement('p');
-    para5Element.innerHTML = `Dislikes: ${Userposts.Dislikes}`;
-
-
-    // li elements inside the ul
-    const li = document.createElement('li');
-    li.classList.add('light-border');
-
-    li.appendChild(h2Element);
-    li.appendChild(para1Element);
-    li.appendChild(para2Element);
-    li.appendChild(figureElement);
-    li.appendChild(para3Element);
-    li.appendChild(para4Element);
-    li.appendChild(para5Element);
-
-    // Prints out everything
-    popularList.appendChild(li);
-  });
+    return await res.json();
+  } catch (e) {
+    console.log(e);
+  }
 };
 
+const getLatest = async () => {
+  try {
+    const res = await fetch(`${url}/latest`);
 
-// Main function
-function getCards() {
+    return await res.json();
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-  // AJAX call which gets most popular journeys
-  const getMostPopular = async () => {
-    try {
-      const response = await fetch(url + '/popular');
-      const mostPopular = await response.json();
-      popularCardsAssembly(mostPopular);
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+const renderPopularPosts = async () => {
+  let popularPosts = await getMostPopular();
+  let html = "";
 
+  popularPosts.forEach(userPost => {
+    let segment = `<li id="post">
+      <h4 id="post-username">${userPost.Username}</h4>
+      <h4 id="post-title">${userPost.Title}</h4>
+      <div id="post-content" class="">
+        <p>${userPost.Description}</p>
+      </div>
+    </li>`;
 
+    html += segment;
+  });
 
-  // AJAX call which gets most recent journeys
-  const getMostRecent = async () => {
-    try {
-      const response = await fetch(url + '/recent');
-      const mostRecent = await response.json();
-      createMostRecentCards(mostRecent);
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+  popularList.innerHTML = html;
+};
 
+const renderLatestPosts = async () => {
+  let latestPosts = await getLatest();
+  let html = "";
+
+  latestPosts.forEach(userPost => {
+    let segment = `<li id="post">
+      <h4 id="post-username">${userPost.Username}</h4>
+      <h4 id="post-title">${userPost.Title}</h4>
+      <div id="post-content" class="">
+        <p>${userPost.Description}</p>
+      </div>      
+    </li>`;
+
+    html += segment;
+  });
+
+  recentList.innerHTML = html;
+};
+
+renderPopularPosts();
+renderLatestPosts();
+
+/*const postContent = document.querySelector("#post-content");
+console.log(postContent);
+postContent.className = "inactive";
+
+const onClick = () => {
+  if (postContent.className === "active") {
+    postContent.className === "inactive";
+  } else {
+    postContent.className === "active"
+  }
 }
 
-getCards();
-
-
-
-
-
+postContent.addEventListener("click", onClick());*/
