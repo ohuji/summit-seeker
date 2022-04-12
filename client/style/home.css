@@ -1,0 +1,182 @@
+:root   {
+    /* CSS VARIABLES HERE */
+}
+
+
+*   {
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: 100;
+}
+
+p   {
+    font-family: 'Open Sans', sans-serif;
+}
+
+li  {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+html    {
+}
+
+
+body    {
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+
+main    {
+    padding: 1vh;
+    margin: auto;
+}
+
+
+/*-----------------Header-area--------------------*/
+
+header  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 19vh;
+    padding: 5vh;
+    color: #23CE6B;
+    background-color: #19181A;
+    border-bottom: 1px #F9DB6D; /*Ei toimi jostain syystä*/
+}
+
+.logoTitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.logoTitleContainer figure  {
+    margin: 0;
+    background: url(../media/logo.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 8em;
+    height: 3em;
+    border-radius: 4px;
+}
+.logoTitleContainer h1   {
+    font-size: 3em;
+    margin: 0;
+}
+
+.profilePicture {
+    margin: 0;
+    background: url(../media/blank-profile-pic.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+    border-radius: 30px;
+}
+
+
+/*------------------Main-body--------------------*/
+
+.contentContainer   {
+    display: flex;
+    flex-direction: row;
+}
+
+/*------------Left-side------------*/
+aside   {
+    /*
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    */
+    /*height: 100vh;*/
+    flex: 0.7;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 2vh;
+    color: #23CE6B;
+    font-size: 1.5em;
+    background-color: #1E1E24;
+    border-left: #1E1E24 solid 1vh;
+    border-right: #1E1E24 solid 1vh;
+}
+aside h3    {
+    color: #F9DB6D;
+}
+
+.locationsList  {
+    list-style-type: none;
+    padding: 0;
+}
+.locationsList li   {
+    background-color: #FE6D73 ;
+    color: #19181A;
+    padding-top: 1.25vh;
+    padding-bottom: 1.25vh;
+    border-top: #1E1E24 solid 0.5vh;
+    border-bottom: #1E1E24 solid 0.5vh;
+}
+
+/*------------Right-side------------*/
+.rightSideContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #19181A;
+    flex: 3;
+}
+
+section {
+    flex-basis: 40vh;
+    background: url(../media/mountains.jpg) no-repeat bottom fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-bottom: #1E1E24 solid 1vh;
+}
+
+.bottomRightContainer {
+    display: flex;
+    flex: 3;
+}
+.leftArticle {
+    flex: 1;
+    padding: 3vh;
+    background-color: #F9DB6D;
+    border-right: #1E1E24 solid 1vh;
+    word-break: break-all;
+}
+.rightArticle    {
+    flex: 1;
+    padding: 3vh;
+    background-color: #F9DB6D;
+    word-break: break-all;
+}
+
+
+/*--------------Footer-----------------*/
+
+footer  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #19181A;
+    color: #23CE6B;
+}
+
+
+
+
+
+
