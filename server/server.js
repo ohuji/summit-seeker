@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRoute);
-//app.use("/mountains", mountainRoute);
+app.use("/mountains", mountainRoute);
 
 
 app.listen(port, () => console.log(`Listening on port: ${port}!`));
