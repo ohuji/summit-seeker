@@ -216,6 +216,24 @@ section {
     display: block;
 }
 
+.mountains {
+    flex-direction: row;
+    display: flex;
+}
+
+.mountain-card {
+    color: #FFFF;
+    border: 1px solid #FE6D73;
+    border-radius: 10px; 
+    width: 30vh;
+    height: 30vh;
+}
+
+.mountain-card img {
+    width: 100%;
+    height: auto;
+}
+
 /*--------------Footer-----------------*/
 
 footer  {
