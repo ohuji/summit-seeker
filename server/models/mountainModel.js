@@ -9,7 +9,7 @@ const getAllMountains = async (res) => {
     return rows;
 
   } catch (e) {
-    console.log("error", error.message);
+    console.log("error", e.message);
     res.status(500).json({ message: 'Something went wrong when climbing the mountains'});
   };
 };

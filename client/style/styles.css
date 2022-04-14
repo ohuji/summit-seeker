@@ -216,23 +216,38 @@ section {
     display: block;
 }
 
-.mountains {
-    flex-direction: row;
+#mountains {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .mountain-card {
     color: #FFFF;
     border: 1px solid #FE6D73;
-    border-radius: 10px; 
-    width: 30vh;
-    height: 30vh;
+    border-radius: 5px;
+    flex: 0 1 25%;
+    transition: box-shadow 1s;
+}
+
+.mountain-card:hover {
+    box-shadow: 10px 11px 23px -11px #484848;
 }
 
 .mountain-card img {
     width: 100%;
     height: auto;
+    border-radius: 5px 5px 0 0;
 }
+
+.mountain-card-info h2 {
+    text-align: center;
+}
+
+.mountain-card-info p {
+    margin-left: 10px;
+}
+
 
 /*--------------Footer-----------------*/
 
