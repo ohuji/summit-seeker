@@ -35,7 +35,7 @@ body    {
 
 
 main    {
-    background-color: #1E1E24;
+    background-color: #516175;
     padding: 0;
     margin: auto;
 }
@@ -50,11 +50,11 @@ header  {
     z-index: 1;
     justify-content: space-between;
     align-items: center;
-    height: 19vh;
+    height: 15vh;
     padding: 5vh;
-    color: #23CE6B;
-    background-color: #19181A;
-    border-bottom: 1px #F9DB6D; /*Ei toimi jostain syystä*/
+    color: #c4d3e4;
+    background-color: #394c5d;
+    border-bottom: 1px #CEBC81; /*Ei toimi jostain syystä*/
 }
 
 .logoTitleContainer {
@@ -109,18 +109,18 @@ aside   {
     /*height: 100vh;*/
     position: sticky;
     align-self: flex-start;
-    top: 19%;
+    top: 15%;
     flex: 0.7;
     flex-direction: row;
     text-align: center;
-    color: #23CE6B;
+    color: #479761;
     font-size: 1.4em;
-    background-color: #1E1E24;
-    border-left: #1E1E24 solid 1vh;
-    border-right: #1E1E24 solid 1vh;
+    background-color: #516175;
+    border-left: #516175 solid 1vh;
+    border-right: #516175 solid 1vh;
 }
 aside h3    {
-    color: #F9DB6D;
+    color: #c4d3e4;
 }
 
 .locationsList  {
@@ -128,12 +128,15 @@ aside h3    {
     padding: 0;
 }
 .locationsList li   {
-    background-color: #FE6D73 ;
-    color: #19181A;
+    background-color: #516175;
+    color: #c4d3e4;
     padding-top: 1vh;
     padding-bottom: 1vh;
-    border-top: #1E1E24 solid 0.4vh;
-    border-bottom: #1E1E24 solid 0.4vh;
+    border-bottom: #1F2933 solid 1px;
+}
+
+.first-ll {
+    border-top: #1F2933 solid 1px;
 }
 
 #recentList {
@@ -144,7 +147,7 @@ aside h3    {
 .rightSideContainer {
     display: flex;
     flex-direction: column;
-    background-color: #19181A;
+    background-color: #dde0e7;
     flex: 3;
 }
 
@@ -155,7 +158,7 @@ section {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    border-bottom: #1E1E24 solid 1vh;
+    border-bottom: #dde0e7 solid 1vh;
 }
 
 .bottomRightContainer {
@@ -165,14 +168,14 @@ section {
 .leftArticle {
     flex: 1;
     padding: 3vh;
-    background-color: #F9DB6D;
-    border-right: #1E1E24 solid 1vh;
+    background-color: #cbd4de;
+    border-right: #dde0e7 solid 1vh;
     word-break: break-all;
 }
 .rightArticle    {
     flex: 1;
     padding: 3vh;
-    background-color: #F9DB6D;
+    background-color: #cbd4de;
     word-break: break-all;
 }
 
@@ -219,19 +222,23 @@ section {
 #mountains {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 .mountain-card {
     color: #FFFF;
-    border: 1px solid #FE6D73;
+    border: 1px solid #4c6a85;
+    background-color: #4c6a85;
     border-radius: 5px;
     flex: 0 1 25%;
     transition: box-shadow 1s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .mountain-card:hover {
-    box-shadow: 10px 11px 23px -11px #484848;
+    box-shadow: 10px 11px 23px -11px #101010;
 }
 
 .mountain-card img {
@@ -256,8 +263,8 @@ footer  {
     justify-content: center;
     align-items: center;
     height: 100px;
-    background-color: #19181A;
-    color: #23CE6B;
+    background-color: #394c5d;
+    color: #c4d3e4;
 }
 
 
