@@ -12,7 +12,7 @@ const getMountains = async () => {
     }
   };
 
-const content = document.querySelector(".mountains");
+const content = document.querySelector("#mountains");
 
 const renderMountains = async () => {
     let latestPosts = await getMountains();
@@ -22,11 +22,13 @@ const renderMountains = async () => {
       let segment = `<div class="mountain-card">
         <img src="./media/${mountain.Name}.jpg"
         alt="picture of a mountain"></img>
-        <h2>${mountain.Name}</h2>
-        <p>${mountain.Difficulty}</p>
-        <p>${mountain.Height}</p>
-        <p>${mountain.Location}</p>
-      </div`;
+        <div class="mountain-card-info">
+          <h2>${mountain.Name}</h2>
+          <p>Difficulty: ${mountain.Difficulty}/10</p>
+          <p>Height: ${mountain.Height}m</p>
+          <p>Location: ${mountain.Location}</p>
+        </div>
+      </div>`;
   
       html += segment;
     });
