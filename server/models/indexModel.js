@@ -10,12 +10,13 @@ const getPopularJourneys = async (res) => {
         Userposts.UserID,
         Userposts.Title,
         Userposts.Description,
+        Userposts.Equipment,
         Userposts.Imagename,
+        Userposts.Postedtime,
         Userposts.Likes,
         Userposts.Dislikes,
-        Userposts.Postedtime,
-        Users.Username,
         Users.ID,
+        Users.Username,
         Users.Role
         FROM Userposts
         INNER JOIN Users
@@ -40,11 +41,11 @@ const getLatestJourneys = async (res) => {
         Userposts.Title,
         Userposts.Description,
         Userposts.Imagename,
+        Userposts.Postedtime,
         Userposts.Likes,
         Userposts.Dislikes,
-        Userposts.Postedtime,
-        Users.Username,
         Users.ID,
+        Users.Username,
         Users.Role
         FROM Userposts
         INNER JOIN Users

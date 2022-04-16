@@ -112,3 +112,8 @@ dist
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+
+#Node stuff
+node_modules
+node_modules/*

@@ -10,48 +10,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
-  <script defer src="js/mountains.js"></script>
+  <script defer src="js/home.js"></script>
   <title>Summit Seeker</title>
 </head>
 <body>
 
 <main>
 
+  <div hidden id="profile">
+    <article>
+      <h4 id="Username">Someusername</h4>
+      <button>Logout</button>
+    </article>
+  </div>
+
+  <aside hidden id="slide">
+    <h2>Categories</h2>
+    <ul class="locationsList">
+      <a href=""><li>Europe</li></a>
+      <a href=""><li>Africa</li></a>
+      <a href=""><li>Central Asia</li></a>
+      <a href=""><li>Southeast Asia</li></a>
+      <a href=""><li>Australia</li></a>
+      <a href=""><li>North America</li></a>
+      <a href=""><li>South America</li></a>
+      <a href=""><li>South Pole</li></a>
+      <a href=""><li>Himalayas</li></a>
+    </ul>
+  </aside>
+
   <header>
       <div class="logoTitleContainer">
-        <figure></figure>
+        <div id="hamburgerIcon"></div>
+        <a href="index.html"><figure></figure></a>
         <h1>Summit Seeker</h1>
+        <h3 id="admin">Admin</h3>
       </div>
 
-      <figure class="profilePicture"></figure>
+      <figure id="profilePicture"></figure>
   </header>
 
 
   <div class="contentContainer">
 
     <aside>
-      <h3>Categories</h3>
+      <h2>Locations</h2>
       <ul class="locationsList">
-        <li>Europe</li>
-        <li>Africa</li>
-        <li>Central Asia</li>
-        <li>Southeast Asia</li>
-        <li>Australia</li>
-        <li>North America</li>
-        <li>South America</li>
-        <li>South Pole</li>
-        <li>Himalayas</li>
+        <a href=""><li>Europe</li></a>
+        <a href=""><li>Africa</li></a>
+        <a href=""><li>Central Asia</li></a>
+        <a href=""><li>Southeast Asia</li></a>
+        <a href=""><li>Australia</li></a>
+        <a href=""><li>North America</li></a>
+        <a href=""><li>South America</li></a>
+        <a href=""><li>South Pole</li></a>
+        <a href=""><li>Himalayas</li></a>
       </ul>
     </aside>
 
     <div class="rightSideContainer">
-      <section></section>
+      <section><h3>Summit Seeker</h3></section>
 
       <div class="bottomRightContainer">
 
         <article class="leftArticle">
           <h2>Most recent journeys</h2>
           <ol id="recentList">
+            <p>pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm</p>
             <!-- Js creates a list of most recent posts here -->
           </ol>
         </article>
@@ -59,6 +84,7 @@
         <article class="rightArticle">
           <h2>Most liked journeys</h2>
           <ol id="popularList">
+            <p>pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm pokaopaopvoprvppnpenrpevoprmvopmrapmrpaemvpm</p>
             <!-- Js creates a list of most popular posts here -->
           </ol>
         </article>
@@ -67,7 +93,7 @@
     </div>
   </div>
 
-  <footer>Footer stuff</footer>
+  <footer><h1>Summit Seeker</h1></footer>
 
 </main>
 

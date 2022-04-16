@@ -8,7 +8,7 @@ const getAllMountains = async (res) => {
     const [rows] = await promisePool.query(`SELECT * FROM Mountains`);
     return rows;
 
-  } catch (e) {
+  } catch (error) {
     console.log("error", error.message);
     res.status(500).json({ message: 'Something went wrong when climbing the mountains'});
   };
