@@ -15,7 +15,7 @@ passport.use(new Strategy(
 
         try {
             const [user] = await getUserLogin(params);
-
+            console.log(user);
             if (user === undefined) {
                 return done(null, false, { message: "incorrect credentials" });
             }

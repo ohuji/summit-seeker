@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
-app.use("/", passport.authenticate("jwt", {session: false}), indexRoute);
+app.use("/auth", authRoute);
+app.use("/", indexRoute);
 app.use("/user", passport.authenticate("jwt", {session: false}), userRoute);
 app.use("/mountains", passport.authenticate("jwt", {session: false}), mountainRoute);
-app.use("/auth", authRoute);
 
 
 app.listen(port, () => console.log(`Listening on port: ${port}!`));

@@ -35,14 +35,13 @@ const create_user = async (req, res, next) => {
         console.log("error with creating user", errors);
         res.send(errors.array());
     } else {
-        const hash = bcrypt.hash(req.body.password, 10);
+        console.log(req.body.username);
+        console.log(req.body.password);
+        const hash = await bcrypt.hash(req.body.password, 10);
 
-        const params = [
-            req.body.username,
-            hash,
-        ];
+        let username = req.body.username;
 
-        const result = await userModel.addUser(params, res);
+        const result = await userModel.addUser(username, hash, res);
 
         if (result.insertId) {
             res.json({ message: "user created", user_id: result.insertId });
@@ -52,8 +51,14 @@ const create_user = async (req, res, next) => {
     }
 };
 
+const logout = (req, res) => {
+    req.logout();
+    res.json({ message: "logged out" });
+}
+
 
 module.exports = {
     login,
     create_user,
+    logout,
 };
