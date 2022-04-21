@@ -39,7 +39,7 @@ document.getElementById('hamburgerIcon')
  */
 
 
-/*
+
 // Posts
 const url = 'http://localhost:3030';
 
