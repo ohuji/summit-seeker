@@ -9,6 +9,7 @@ require("dotenv").config();
 
 const login = (req, res, next) => {
     passport.authenticate("local", {session: false}, (err, user, info) => {
+        console.log("log", user);
         if (err || !user) {
             return res.status(400).json({
                 message: "something went wrong with login",
@@ -24,7 +25,7 @@ const login = (req, res, next) => {
             const token = jwt.sign(user, process.env.JWT_SECRET);
 
             return res.json({user, token});
-        })
+        });
     }) (req, res, next);
 };
 

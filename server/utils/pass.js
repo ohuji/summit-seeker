@@ -10,21 +10,21 @@ const ExtractJWT = passportJWT.ExtractJwt;
 require("dotenv").config();
 
 passport.use(new Strategy(
-    async (username, password, done) => {
-        const params = [username];
-
+    async (Username, Password, done) => {
+        const params = [Username];
+        console.log("a:", params);
         try {
             const [user] = await getUserLogin(params);
-            console.log(user);
+            console.log("u: ", user);
             if (user === undefined) {
                 return done(null, false, { message: "incorrect credentials" });
             }
 
-            if (!await bcrypt.compare(password, user.password)) {
+            if (!await bcrypt.compare(Password, user.Password)) {
                 return done(null, false, { message: "incorrect credentials" });
             }
 
-            delete user.password;
+            delete user.Password;
 
             return done(null, {...user}, { message: "logged in" });
         } catch (err) {
@@ -36,9 +36,10 @@ passport.use(new Strategy(
 passport.use(new JWTStrategy({
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
         secretOrKey: process.env.JWT_SECRET,
-    }, (jwtPayload, done) => {
+    }, 
+        (jwtPayload, done) => {
             done(null, jwtPayload);
-    }
+        }
 ));
 
 module.exports = passport;
