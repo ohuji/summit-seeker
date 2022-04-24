@@ -4,7 +4,13 @@ const url = "http://localhost:3030/";
 
 const getMountains = async () => {
     try {
-      const res = await fetch(`${url}mountains/`);
+      const fetchOptions = {
+        headers: {
+          Authorization: "bearer " + sessionStorage.getItem("token"),
+        },
+      };
+
+      const res = await fetch(`${url}mountains/`, fetchOptions);
   
       return await res.json();
     } catch (e) {

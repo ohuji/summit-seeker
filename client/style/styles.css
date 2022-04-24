@@ -291,6 +291,81 @@ aside h3    {
     margin-left: 10px;
 }
 
+.reg-log-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    flex-direction: column;
+}
+
+.reg-log-card {
+    border: 1px solid var(--c-black-dark);
+    background-color: var(--c-blue-light2);
+    width: 30%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 11px 23px -11px #101010;
+}
+
+.reg-log-img {
+    margin: 0;
+    background: url(../media/logo.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 10em;
+    height: 4em;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.reg-log-card input {
+    width: 95%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reg-log-card button {
+    background-color: var(--c-blue-dark3);
+    color: var(--c-blue-light2);
+    border: 1px solid var(--c-blue-dark3);
+    border-radius: 5px;
+    padding: 10px;
+    width: 35%;
+    margin: 10px;
+}
+
+.reg-card {
+    text-align: center;
+    border: 1px solid var(--c-black-dark);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 10px 11px 23px -11px #101010;
+    width: 30%;
+    background-color: var(--c-blue-light2);
+}
+
+.reg-card {
+    font-weight: bolder;
+}
+
+.reg-card p a {
+    color: #0000FF;
+}
+
+.reg-card p a:hover {
+    text-decoration: underline;
+}
+
 /*--------------Footer-----------------*/
 
 footer  {
@@ -326,6 +401,19 @@ footer  {
     }
     .rightArticle   {
         border-top: var(--c-blue-light1) solid 1vh;
+    }
+
+    .reg-log-img {
+        width: 7em;
+        height: 3em;
+    }
+
+    .reg-log-card {
+        width: 60%;
+    }
+
+    .reg-card {
+        width: 60%;
     }
 }
 
