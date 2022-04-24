@@ -11,8 +11,12 @@ const getMountains = async () => {
       };
 
       const res = await fetch(`${url}mountains/`, fetchOptions);
-  
-      return await res.json();
+      
+      if (res.status === 401) {
+        location.href = "/summit-seeker/client/login.html"
+      } else {
+        return await res.json();
+      }
     } catch (e) {
       console.log(e);
     }
