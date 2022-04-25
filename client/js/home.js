@@ -1,23 +1,5 @@
 'use strict';
 
-
-// Hidden elements handling
-let profileIsVisible = false;
-let profileElement = document.getElementById('profile');
-
-// Adds eventListener to profilePicture and listens for clicks.
-// If statement sets profileElement visible or hidden depending of isVisible variable.
-document.getElementById('profilePicture')
-.addEventListener("click", function() {
-
-  if (profileIsVisible === false) {
-    profileElement.style.display = 'block';
-    profileIsVisible = true;
-  } else {
-    profileElement.style.display = 'none';
-    profileIsVisible = false;
-  }
-});
 /*
 let sidebarIsVisible = false;
 let sidebarElement = document.getElementById('slide');
@@ -46,6 +28,33 @@ const url = 'http://localhost:3030';
 const popularList = document.querySelector('#popularList');
 const recentList = document.querySelector('#recentList');
 
+// Applied to posts
+const postStyle = {
+  'border': '1px solid #1E1E24',
+  'border-radius': '5px',
+  'padding': '5px',
+  'margin': '10px',
+  'background-color': '#dde0e7',
+  'box-shadow': '9px 10px 5px -5px rgba(0,0,0,0.22)',
+  'display': 'flex',
+  'gap': '2vh',
+  'cursor': 'pointer'
+};
+
+const hiddenPostStyle = {
+  'z-index': '3',
+  'position': 'fixed',
+  'top': '50%',
+  'left': '50%',
+  'border-radius': '12px',
+  'width': '94vh',
+  'height': '66vh',
+  'background-color': 'crimson',
+  'color': '#1E1E24',
+  'margin-top': '-33vh',  /* Negative half of height. */
+  'margin-left': '-47vh'  /* Negative half of width. */
+}
+
 const getMostPopular = async () => {
   try {
     const res = await fetch(`${url}/popular`);
@@ -69,28 +78,49 @@ const getLatest = async () => {
 const renderPopularPosts = async () => {
   let popularPosts = await getMostPopular();
   let html = "";
+  let i = 0;
 
   popularPosts.forEach(userPost => {
-    let segment = `<li id="post">
+    let segment = `<li id="popularPost${i}">
       <h4 id="post-username">${userPost.Username}</h4>
       <h4 id="post-title">${userPost.Title}</h4>
+      
       <div id="post-content" class="">
-        <p>${userPost.Description}</p>
+        <h2 id="hiddenPost-username">${userPost.Username}</h2>
+        <h3 id="hiddenPost-title">${userPost.Title}</h3>
+        <p id="hiddenPost-description">${userPost.Description}</p>
       </div>
     </li>`;
 
+    /*<article id="hiddenPopularPost${i}" className="">
+    </article>*/
+
     html += segment;
+    i++;
   });
 
   popularList.innerHTML = html;
+
+  // Goes through 40 posts and gives them style
+  for (let i = 0; i < 40; i++) {
+
+    // Sets style to shown posts
+    let currentPost = document.getElementById("popularPost" + i);
+    Object.assign(currentPost.style, postStyle);
+
+    // Sets style to hidden posts
+    let currentHiddenPost = document.getElementById("post-content");
+    Object.assign(currentHiddenPost.style, hiddenPostStyle);
+  };
 };
 
 const renderLatestPosts = async () => {
   let latestPosts = await getLatest();
   let html = "";
+  let i = 0;
 
   latestPosts.forEach(userPost => {
-    let segment = `<li id="post">
+    let segment = `<li id="latestPost${i}">
       <h4 id="post-username">${userPost.Username}</h4>
       <h4 id="post-title">${userPost.Title}</h4>
       <div id="post-content" class="">
@@ -99,9 +129,19 @@ const renderLatestPosts = async () => {
     </li>`;
 
     html += segment;
+    i++;
   });
 
   recentList.innerHTML = html;
+
+  //Goes through 40 posts and gives them style
+  //Could be developed better
+  for (let i = 0; i < 40; i++) {
+
+    let currentPost = document.getElementById("latestPost" + i);
+
+    Object.assign(currentPost.style, postStyle);
+  };
 };
 
 renderPopularPosts();
@@ -120,12 +160,6 @@ const onClick = () => {
 }
 
 postContent.addEventListener("click", onClick());*/
-
-
-
-
-
-
 
 
 /*
@@ -153,3 +187,57 @@ const getUser = async () => {
   }
 };
 */
+
+
+// Hidden elements handling
+let profileIsVisible = false;
+let profileElement = document.getElementById('profile');
+
+// Adds eventListener to profilePicture and listens for clicks.
+// If statement sets profileElement visible or hidden depending of isVisible variable.
+document.getElementById('profilePicture')
+.addEventListener('click', function() {
+
+  if (profileIsVisible === false) {
+    profileElement.style.display = 'block';
+    profileIsVisible = true;
+  } else {
+    profileElement.style.display = 'none';
+    profileIsVisible = false;
+  }
+});
+
+
+
+const onClick = (event) =>  {
+  const clickedPost = event.target.id;
+
+  console.log(clickedPost);
+
+  if (clickedPost.includes('popularPost' || 'latestPost'))  {
+    const child = event.target.document.getElementById('post-content');
+    console.log('Child elem', child);
+
+    if (child.className = 'inactive')  {
+      child.className = 'active';
+    } else  {
+      child.className = 'inactive';
+    }
+  }
+};
+window.addEventListener('click', onClick);
+
+/*
+const hiddenPost = document.getElementById('hiddenPopularPost');
+hiddenPost.className = 'inactive';
+const post = document.getElementById('popularList');
+
+post.addEventListener('click', function() {
+
+  if (hiddenPost.className = 'inactive')  {
+    hiddenPost.className = 'active';
+  } else  {
+    hiddenPost.className = 'inactive';
+  }
+});
+ */

@@ -248,6 +248,7 @@ aside h3    {
     box-shadow: 9px 10px 5px -5px rgba(0,0,0,0.22);
     display: flex;
     gap: 2vh;
+    cursor: pointer;
 }
 
 #post-username {
@@ -465,6 +466,20 @@ footer  {
     background-color: var(--c-blue-light1);
     border: white double 0.5em;
     border-radius: 15px;
+}
+
+#hiddenPost {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    width: 94vh;
+    height:66vh;
+    background-color: crimson;
+    color: #1E1E24;
+    margin-top: -33vh;  /* Negative half of height. */
+    margin-left: -47vh;  /* Negative half of width. */
 }
 
 
