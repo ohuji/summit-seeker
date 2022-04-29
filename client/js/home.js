@@ -208,7 +208,6 @@ document.getElementById('profilePicture')
 });
 
 
-
 const onClick = (event) =>  {
   const clickedPost = event.target.id;
 
