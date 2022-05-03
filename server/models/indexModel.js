@@ -40,6 +40,7 @@ const getLatestJourneys = async (res) => {
         Userposts.UserID,
         Userposts.Title,
         Userposts.Description,
+        Userposts.Equipment,
         Userposts.Imagename,
         Userposts.Postedtime,
         Userposts.Likes,

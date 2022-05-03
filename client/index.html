@@ -74,18 +74,24 @@
 
       <div class="bottomRightContainer">
 
-        <article class="leftArticle">
-          <h2>Most recent journeys</h2>
-          <ol id="recentList">
-            <!-- Js creates a list of most recent posts here -->
-          </ol>
-        </article>
+        <article class="postHolder">
 
-        <article class="rightArticle">
-          <h2>Most liked journeys</h2>
-          <ol id="popularList">
-            <!-- Js creates a list of most popular posts here -->
-          </ol>
+          <div id="switchContainer">
+
+            <h4 id="switchHeader">Switch between most recent and most popular journeys</h4>
+
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div id="postContainer">
+            <ol id="postList">
+              <!-- Js creates a list of posts here -->
+            </ol>
+          </div>
+
         </article>
 
       </div>
