@@ -239,6 +239,7 @@ aside h3    {
 
 /*------Posts------*/
 
+/*
 #post {
     border: 1px solid var(--c-blue-dark1);
     border-radius: 5px;
@@ -250,14 +251,21 @@ aside h3    {
     gap: 2vh;
     cursor: pointer;
 }
+*/
 
 #post-username {
-    flex: 1;
-    margin-left: 10px;
+    border: 1px solid var(--c-blue-light4);
 }
 
 #post-title {
-    flex: 2;
+    border: 1px solid var(--c-blue-light4);
+}
+
+#post-image {
+    width: 23vh;
+    height: 23vh;
+    border: 1px solid var(--c-blue-light4);
+    border-radius: 5px;
 }
 
 #post-content {
@@ -266,6 +274,10 @@ aside h3    {
 
 .active {
     display: block;
+}
+
+.inactive   {
+    display: none;
 }
 
 #mountains {

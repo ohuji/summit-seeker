@@ -37,8 +37,7 @@ const postStyle = {
   'background-color': '#dde0e7',
   'box-shadow': '9px 10px 5px -5px rgba(0,0,0,0.22)',
   'display': 'flex',
-  'gap': '2vh',
-  'cursor': 'pointer'
+  'gap': '2vh'
 };
 
 const hiddenPostStyle = {
@@ -80,20 +79,38 @@ const renderPopularPosts = async () => {
   let html = "";
   let i = 0;
 
+  /*
+  Creates shown element containing little of post data
+  Creates also bigger hidden element inside the shown element which contains much more data
+ */
   popularPosts.forEach(userPost => {
     let segment = `<li id="popularPost${i}">
-      <h4 id="post-username">${userPost.Username}</h4>
-      <h4 id="post-title">${userPost.Title}</h4>
-      
-      <div id="post-content" class="">
+      <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+      <article id="post-article">
+        <h4 id="post-username">${userPost.Username}</h4>
+        <h4 id="post-title">${userPost.Title}</h4>
+        <h4 id="post-likes">${userPost.Likes}</h4>
+        <h4 id="post-dislikes">${userPost.Dislikes}</h4>
+      </article>
+           
+      <div id="post-content" class="inactive">
         <h2 id="hiddenPost-username">${userPost.Username}</h2>
         <h3 id="hiddenPost-title">${userPost.Title}</h3>
         <p id="hiddenPost-description">${userPost.Description}</p>
       </div>
+      
     </li>`;
 
-    /*<article id="hiddenPopularPost${i}" className="">
-    </article>*/
+    /*
+    const imageStyle = {
+      'flex-basis': '30vh',
+      'background': 'url() no-repeat center center fixed',
+      '-webkit-background-size': 'cover',
+      '-moz-background-size': 'cover',
+      '-o-background-size': 'cover',
+      'background-size': 'cover'
+    };
+    */
 
     html += segment;
     i++;
@@ -111,7 +128,7 @@ const renderPopularPosts = async () => {
     // Sets style to hidden posts
     let currentHiddenPost = document.getElementById("post-content");
     Object.assign(currentHiddenPost.style, hiddenPostStyle);
-  };
+  }
 };
 
 const renderLatestPosts = async () => {
@@ -119,12 +136,24 @@ const renderLatestPosts = async () => {
   let html = "";
   let i = 0;
 
+  /*
+  Creates shown element containing little of post data
+  Creates also bigger hidden element inside the shown element which contains much more data
+   */
   latestPosts.forEach(userPost => {
     let segment = `<li id="latestPost${i}">
-      <h4 id="post-username">${userPost.Username}</h4>
-      <h4 id="post-title">${userPost.Title}</h4>
-      <div id="post-content" class="">
-        <p>${userPost.Description}</p>
+      <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+      <article id="post-article">
+        <h4 id="post-username">${userPost.Username}</h4>
+        <h4 id="post-title">${userPost.Title}</h4>
+        <h4 id="post-likes">${userPost.Likes}</h4>
+        <h4 id="post-dislikes">${userPost.Dislikes}</h4>
+      </article>
+      
+      <div id="post-content" class="inactive">
+        <h2 id="hiddenPost-username">${userPost.Username}</h2>
+        <h3 id="hiddenPost-title">${userPost.Title}</h3>
+        <p id="hiddenPost-description">${userPost.Description}</p>
       </div>      
     </li>`;
 
@@ -189,7 +218,9 @@ const getUser = async () => {
 */
 
 
-// Hidden elements handling
+/** Hidden elements handling
+ */
+
 let profileIsVisible = false;
 let profileElement = document.getElementById('profile');
 
@@ -208,6 +239,11 @@ document.getElementById('profilePicture')
 });
 
 
+/*
+* Tried to fetch the number of post and check which one of the post were clicked
+* so that we could make the bigger post unhidden
+* didn't work.
+
 const onClick = (event) =>  {
   const clickedPost = event.target.id;
 
@@ -225,18 +261,4 @@ const onClick = (event) =>  {
   }
 };
 window.addEventListener('click', onClick);
-
-/*
-const hiddenPost = document.getElementById('hiddenPopularPost');
-hiddenPost.className = 'inactive';
-const post = document.getElementById('popularList');
-
-post.addEventListener('click', function() {
-
-  if (hiddenPost.className = 'inactive')  {
-    hiddenPost.className = 'active';
-  } else  {
-    hiddenPost.className = 'inactive';
-  }
-});
  */
