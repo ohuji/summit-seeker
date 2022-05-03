@@ -10,7 +10,7 @@ const getMountains = async () => {
         },
       };
 
-      const res = await fetch(`${url}mountains/`, fetchOptions);
+      const res = await fetch(`${url}mountains/southamerica`, fetchOptions);
       
       if (res.status === 401) {
         location.href = "/summit-seeker/client/login.html"
