@@ -1,32 +1,11 @@
 'use strict';
 
-/*
-let sidebarIsVisible = false;
-let sidebarElement = document.getElementById('slide');
-
-// Adds eventListener to hamburgerIcon and listens for clicks.
-document.getElementById('hamburgerIcon')
-.addEventListener("click", function() {
-
-  if sidebarIsVisible === false) {
-    sidebarElement.style.display = 'block';
-    sidebarElement.toggle('clicked');
-    sidebarIsVisible = true;
-  } else {
-    sidebarElement.style.display = 'none';
-    sidebarElement.toggle('clicked');
-    sidebarIsVisible = false;
-  }
-});
- */
-
-
-
 // Posts
 const url = 'http://localhost:3030';
 
-const popularList = document.querySelector('#popularList');
-const recentList = document.querySelector('#recentList');
+const postContainer = document.querySelector('#postContainer');
+const popularList = document.querySelector('#postList');
+const recentList = document.querySelector('#postList');
 
 // Applied to posts
 const postStyle = {
@@ -83,34 +62,25 @@ const renderPopularPosts = async () => {
   Creates shown element containing little of post data
   Creates also bigger hidden element inside the shown element which contains much more data
  */
+  let header = `<h2>Most popular journeys</h2>`;
+  html += header;
+
   popularPosts.forEach(userPost => {
     let segment = `<li id="popularPost${i}">
       <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
-      <article id="post-article">
-        <h4 id="post-username">${userPost.Username}</h4>
-        <h4 id="post-title">${userPost.Title}</h4>
-        <h4 id="post-likes">${userPost.Likes}</h4>
-        <h4 id="post-dislikes">${userPost.Dislikes}</h4>
-      </article>
-           
-      <div id="post-content" class="inactive">
-        <h2 id="hiddenPost-username">${userPost.Username}</h2>
-        <h3 id="hiddenPost-title">${userPost.Title}</h3>
-        <p id="hiddenPost-description">${userPost.Description}</p>
+      <div id="post">
+        <article id="post-article">
+          <h4 id="post-username">${userPost.Username}</h4>
+          <h4 id="post-title">${userPost.Title}</h4>
+          <p id="post-equipment">${userPost.Equipment}</p>
+          <p id="post-description">${userPost.Description}</p>
+        </article>
+        <div id="post-likes-and-dislikes">
+          <h4 id="post-likes">Likes: ${userPost.Likes}</h4>
+          <h4 id="post-dislikes">Dislikes: ${userPost.Dislikes}</h4>
+        </div>
       </div>
-      
     </li>`;
-
-    /*
-    const imageStyle = {
-      'flex-basis': '30vh',
-      'background': 'url() no-repeat center center fixed',
-      '-webkit-background-size': 'cover',
-      '-moz-background-size': 'cover',
-      '-o-background-size': 'cover',
-      'background-size': 'cover'
-    };
-    */
 
     html += segment;
     i++;
@@ -118,16 +88,12 @@ const renderPopularPosts = async () => {
 
   popularList.innerHTML = html;
 
-  // Goes through 40 posts and gives them style
-  for (let i = 0; i < 40; i++) {
+  // Goes through 4 posts and gives them style
+  for (let i = 0; i < 4; i++) {
 
     // Sets style to shown posts
     let currentPost = document.getElementById("popularPost" + i);
     Object.assign(currentPost.style, postStyle);
-
-    // Sets style to hidden posts
-    let currentHiddenPost = document.getElementById("post-content");
-    Object.assign(currentHiddenPost.style, hiddenPostStyle);
   }
 };
 
@@ -140,21 +106,24 @@ const renderLatestPosts = async () => {
   Creates shown element containing little of post data
   Creates also bigger hidden element inside the shown element which contains much more data
    */
+  let header = `<h2>Most recent journeys</h2>`;
+  html += header;
+
   latestPosts.forEach(userPost => {
     let segment = `<li id="latestPost${i}">
       <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
-      <article id="post-article">
-        <h4 id="post-username">${userPost.Username}</h4>
-        <h4 id="post-title">${userPost.Title}</h4>
-        <h4 id="post-likes">${userPost.Likes}</h4>
-        <h4 id="post-dislikes">${userPost.Dislikes}</h4>
-      </article>
-      
-      <div id="post-content" class="inactive">
-        <h2 id="hiddenPost-username">${userPost.Username}</h2>
-        <h3 id="hiddenPost-title">${userPost.Title}</h3>
-        <p id="hiddenPost-description">${userPost.Description}</p>
-      </div>      
+      <div id="post">
+        <article id="post-article">
+          <h4 id="post-username">${userPost.Username}</h4>
+          <h4 id="post-title">${userPost.Title}</h4>
+          <p id="post-equipment">${userPost.Equipment}</p>
+          <p id="post-description">${userPost.Description}</p>
+        </article>
+        <div id="post-likes-and-dislikes">
+          <h4 id="post-likes">${userPost.Likes}</h4>
+          <h4 id="post-dislikes">${userPost.Dislikes}</h4>
+        </div>
+      </div>   
     </li>`;
 
     html += segment;
@@ -163,18 +132,15 @@ const renderLatestPosts = async () => {
 
   recentList.innerHTML = html;
 
-  //Goes through 40 posts and gives them style
+  //Goes through 4 posts and gives them style
   //Could be developed better
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 4; i++) {
 
     let currentPost = document.getElementById("latestPost" + i);
 
     Object.assign(currentPost.style, postStyle);
   };
 };
-
-renderPopularPosts();
-renderLatestPosts();
 
 /*const postContent = document.querySelector("#post-content");
 console.log(postContent);
@@ -189,6 +155,8 @@ const onClick = () => {
 }
 
 postContent.addEventListener("click", onClick());*/
+
+renderLatestPosts();
 
 
 /*
@@ -239,6 +207,17 @@ document.getElementById('profilePicture')
 });
 
 
+let checkbox = document.querySelector('input[type="checkbox"]');
+checkbox.addEventListener('change', function () {
+  if (checkbox.checked) {
+    renderLatestPosts();
+  } else {
+    renderPopularPosts();
+  }
+});
+
+
+
 /*
 * Tried to fetch the number of post and check which one of the post were clicked
 * so that we could make the bigger post unhidden
@@ -261,4 +240,28 @@ const onClick = (event) =>  {
   }
 };
 window.addEventListener('click', onClick);
+ */
+
+
+
+
+// HANDLER TO OPEN SIDEBAR WITH HAMBURGER ICON
+/*
+let sidebarIsVisible = false;
+let sidebarElement = document.getElementById('slide');
+
+// Adds eventListener to hamburgerIcon and listens for clicks.
+document.getElementById('hamburgerIcon')
+.addEventListener("click", function() {
+
+  if sidebarIsVisible === false) {
+    sidebarElement.style.display = 'block';
+    sidebarElement.toggle('clicked');
+    sidebarIsVisible = true;
+  } else {
+    sidebarElement.style.display = 'none';
+    sidebarElement.toggle('clicked');
+    sidebarIsVisible = false;
+  }
+});
  */
