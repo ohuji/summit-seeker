@@ -68,6 +68,7 @@ header  {
     padding: 5vh;
     color: var(--c-blue-light3);
     background-color: var(--c-blue-dark3);
+    box-shadow: -2px 4px 16px -7px rgba(0,0,0,0.75);
 }
 
 .logoTitleContainer {
