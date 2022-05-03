@@ -20,20 +20,6 @@ const postStyle = {
   'flex-direction': 'column'
 };
 
-const hiddenPostStyle = {
-  'z-index': '3',
-  'position': 'fixed',
-  'top': '50%',
-  'left': '50%',
-  'border-radius': '12px',
-  'width': '94vh',
-  'height': '66vh',
-  'background-color': 'crimson',
-  'color': '#1E1E24',
-  'margin-top': '-33vh',  /* Negative half of height. */
-  'margin-left': '-47vh'  /* Negative half of width. */
-}
-
 const getMostPopular = async () => {
   try {
     const res = await fetch(`${url}/popular`);
@@ -68,19 +54,21 @@ const renderPopularPosts = async () => {
 
   popularPosts.forEach(userPost => {
     let segment = `<li id="popularPost${i}">
-      <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
-      <div id="post">
-        <article id="post-article">
-          <h4 id="post-username">${userPost.Username}</h4>
+      <div id="post-figure">
+        <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+        <div id="post-titleContainer">
           <h4 id="post-title">${userPost.Title}</h4>
-          <p id="post-equipment">${userPost.Equipment}</p>
-          <p id="post-description">${userPost.Description}</p>
-        </article>
+          <h4 id="post-username">${userPost.Username}</h4>
+        </div>
+      </div> 
+      <article id="post-article">          
+        <p id="post-equipment">${userPost.Equipment}</p>
+        <p id="post-description">${userPost.Description}</p>
         <div id="post-likes-and-dislikes">
           <h4 id="post-likes">Likes: ${userPost.Likes}</h4>
           <h4 id="post-dislikes">Dislikes: ${userPost.Dislikes}</h4>
         </div>
-      </div>
+      </article>
     </li>`;
 
     html += segment;
@@ -89,8 +77,8 @@ const renderPopularPosts = async () => {
 
   popularList.innerHTML = html;
 
-  // Goes through 4 posts and gives them style
-  for (let i = 0; i < 4; i++) {
+  // Goes through 10 posts and gives them style
+  for (let i = 0; i < 10; i++) {
 
     // Sets style to shown posts
     let currentPost = document.getElementById("popularPost" + i);
@@ -114,9 +102,9 @@ const renderLatestPosts = async () => {
     let segment = `<li id="latestPost${i}">
       <div id="post-figure">
         <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
-        <div id="post-titleContainer"
-          <h4 id="post-username">${userPost.Username}</h4>
+        <div id="post-titleContainer">
           <h4 id="post-title">${userPost.Title}</h4>
+          <h4 id="post-username">${userPost.Username}</h4>
         </div>
       </div> 
       <article id="post-article">          
@@ -135,9 +123,8 @@ const renderLatestPosts = async () => {
 
   recentList.innerHTML = html;
 
-  //Goes through 4 posts and gives them style
-  //Could be developed better
-  for (let i = 0; i < 4; i++) {
+  //Goes through 10 posts and gives them style
+  for (let i = 0; i < 10; i++) {
 
     let currentPost = document.getElementById("latestPost" + i);
 
@@ -164,7 +151,6 @@ renderLatestPosts();
 
 /*
 // ---- Checks if admin ----
-// ---- User backend must be made !!! or not :D
 // maybe useless
 
 const checkIfAdmin = (user) => {
@@ -189,14 +175,14 @@ const getUser = async () => {
 */
 
 
-/** Hidden elements handling
- */
 
-let profileIsVisible = false;
-let profileElement = document.getElementById('profile');
+// Hidden elements handling.
 
 // Adds eventListener to profilePicture and listens for clicks.
 // If statement sets profileElement visible or hidden depending of isVisible variable.
+let profileIsVisible = false;
+let profileElement = document.getElementById('profile');
+
 document.getElementById('profilePicture')
 .addEventListener('click', function() {
 
@@ -210,6 +196,7 @@ document.getElementById('profilePicture')
 });
 
 
+// Handler for most recent/most popular posts slider.
 let checkbox = document.querySelector('input[type="checkbox"]');
 checkbox.addEventListener('change', function () {
   if (checkbox.checked) {
@@ -222,9 +209,12 @@ checkbox.addEventListener('change', function () {
 
 
 /*
+* !! UNFINISHED !!
+* onClick handler for hidden posts
+*
 * Tried to fetch the number of post and check which one of the post were clicked
 * so that we could make the bigger post unhidden
-* didn't work.
+* didn't work
 
 const onClick = (event) =>  {
   const clickedPost = event.target.id;
@@ -248,7 +238,10 @@ window.addEventListener('click', onClick);
 
 
 
-// HANDLER TO OPEN SIDEBAR WITH HAMBURGER ICON
+/*
+!! UNFINISHED !!
+HANDLER TO OPEN SIDEBAR WITH HAMBURGER ICON
+ */
 /*
 let sidebarIsVisible = false;
 let sidebarElement = document.getElementById('slide');

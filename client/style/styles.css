@@ -305,6 +305,7 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     flex: 5;
+    margin-left: 3vh;
 }
 
 #post-article   {
