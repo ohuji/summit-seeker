@@ -279,7 +279,7 @@ input:checked + .slider:before {
 
 /*------Posts------*/
 
-.postArticle {
+.postHolder {
     padding: 3vh;
     background-color: var(--c-blue-light2);
     border-right: var(--c-blue-light1) solid 1vh;
@@ -288,10 +288,9 @@ input:checked + .slider:before {
     flex-direction: column;
 }
 
-#post-username {
-}
-
-#post-title {
+#post-figure    {
+    display: flex;
+    flex-direction: row;
 }
 
 #post-image {
@@ -299,10 +298,22 @@ input:checked + .slider:before {
     height: 23vh;
     border: 1px solid var(--c-blue-light4);
     border-radius: 5px;
+    flex: 1;
 }
 
-#post-content {
-    display: none;
+#post-titleContainer    {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+}
+
+#post-article   {
+    display: flex;
+    flex-direction: column;
+}
+#post-likes-and-dislikes    {
+    display: flex;
+    gap: 4vh;
 }
 
 .active {
@@ -511,20 +522,6 @@ footer  {
     background-color: var(--c-blue-light1);
     border: white double 0.5em;
     border-radius: 15px;
-}
-
-#hiddenPost {
-    z-index: 3;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    border-radius: 12px;
-    width: 94vh;
-    height:66vh;
-    background-color: crimson;
-    color: #1E1E24;
-    margin-top: -33vh;  /* Negative half of height. */
-    margin-left: -47vh;  /* Negative half of width. */
 }
 
 

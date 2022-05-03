@@ -16,7 +16,8 @@ const postStyle = {
   'background-color': '#dde0e7',
   'box-shadow': '9px 10px 5px -5px rgba(0,0,0,0.22)',
   'display': 'flex',
-  'gap': '2vh'
+  'gap': '2vh',
+  'flex-direction': 'column'
 };
 
 const hiddenPostStyle = {
@@ -111,19 +112,21 @@ const renderLatestPosts = async () => {
 
   latestPosts.forEach(userPost => {
     let segment = `<li id="latestPost${i}">
-      <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
-      <div id="post">
-        <article id="post-article">
+      <div id="post-figure">
+        <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+        <div id="post-titleContainer"
           <h4 id="post-username">${userPost.Username}</h4>
           <h4 id="post-title">${userPost.Title}</h4>
-          <p id="post-equipment">${userPost.Equipment}</p>
-          <p id="post-description">${userPost.Description}</p>
-        </article>
-        <div id="post-likes-and-dislikes">
-          <h4 id="post-likes">${userPost.Likes}</h4>
-          <h4 id="post-dislikes">${userPost.Dislikes}</h4>
         </div>
-      </div>   
+      </div> 
+      <article id="post-article">          
+        <p id="post-equipment">${userPost.Equipment}</p>
+        <p id="post-description">${userPost.Description}</p>
+        <div id="post-likes-and-dislikes">
+          <h4 id="post-likes">Likes: ${userPost.Likes}</h4>
+          <h4 id="post-dislikes">Dislikes: ${userPost.Dislikes}</h4>
+        </div>
+      </article>
     </li>`;
 
     html += segment;
