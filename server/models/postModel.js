@@ -7,7 +7,14 @@ const createPost = async (post, res) => {
   try {
     const [rows] = await promisePool.query(`INSERT INTO Userposts(
         MountainID, UserID, Title, Description, Equipment, Imagename) VALUES (?,?,?,?,?,?)`,
+        [2, 6, post.jtitle, post.jdescription, post.jequipments, post.jimage]);
+
+    /* Real one
+    const [rows] = await promisePool.query(`INSERT INTO Userposts(
+        MountainID, UserID, Title, Description, Equipment, Imagename) VALUES (?,?,?,?,?,?)`,
         [post.MountainID, post.UserID, post.Title, post.Description, post.Equipment, post.Imagename]);
+     */
+
     console.log('post model insert', rows[0]);
     return rows[0];
   } catch (error) {
