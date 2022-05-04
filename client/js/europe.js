@@ -29,7 +29,8 @@ const renderMountains = async () => {
     let html = "";
   
     latestPosts.forEach(mountain => {
-      let segment = `<div class="mountain-card">
+      let segment = `<div class="mountain-card" id="${mountain.ID}"
+        onclick='localStorage.setItem("mID", this.id), location.href = "/summit-seeker/client"'>
         <img src="./media/${mountain.Name}.jpg"
         alt="picture of a mountain"></img>
         <div class="mountain-card-info">
@@ -47,3 +48,7 @@ const renderMountains = async () => {
   };
 
 renderMountains();
+
+const click = (id) => {
+  console.log(id);
+}

@@ -1,5 +1,7 @@
 'use strict';
 
+localStorage.removeItem("mID");
+
 // Posts
 const url = 'http://localhost:3030';
 

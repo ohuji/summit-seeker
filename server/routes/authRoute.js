@@ -3,7 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const {body, sanitizeBody} = require("express-validator");
-const {login, create_user} = require("../controllers/authController");
+const {login, create_user, logout} = require("../controllers/authController");
 
 router.post("/login", login);
 
@@ -15,5 +15,7 @@ router.post("/register",
     ],
     create_user
 );
+
+router.get("/logout", logout);
 
 module.exports = router;

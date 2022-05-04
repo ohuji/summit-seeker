@@ -1,5 +1,7 @@
 "use strict";
 
+localStorage.removeItem("mID");
+
 const url = "http://localhost:3030/auth/login";
 
 const logForm = document.querySelector("#login-form");
