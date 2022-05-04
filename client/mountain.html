@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style/styles.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+  <script defer src="js/mountain.js"></script>
+  <title>Summit Seeker</title>
+</head>
+<body>
+
+<main>
+
+  <div hidden id="profile">
+    <article>
+      <h4 id="Username">Someusername</h4>
+      <button>Logout</button>
+    </article>
+  </div>
+
+  <aside hidden id="slide">
+    <h2>Categories</h2>
+    <ul class="locationsList">
+      <a href=""><li>Europe</li></a>
+      <a href=""><li>Africa</li></a>
+      <a href=""><li>Central Asia</li></a>
+      <a href=""><li>Southeast Asia</li></a>
+      <a href=""><li>Australia</li></a>
+      <a href=""><li>North America</li></a>
+      <a href=""><li>South America</li></a>
+      <a href=""><li>South Pole</li></a>
+      <a href=""><li>Himalayas</li></a>
+    </ul>
+  </aside>
+
+  <header>
+    <div class="logoTitleContainer">
+      <div id="hamburgerIcon"></div>
+      <a href="index.html"><figure></figure></a>
+      <h3 id="admin">Admin</h3>
+    </div>
+
+    <figure id="profilePicture"></figure>
+  </header>
+
+
+  <div class="contentContainer">
+
+    <aside>
+      <h3>Locations</h3>
+      <ul class="locationsList">
+
+        <a href="/summit-seeker/client/europe.html"><li class="first-ll">Europe</li></a>
+        <a href="/summit-seeker/client/africa.html"><li>Africa</li></a>
+        <a href="/summit-seeker/client/centralasia.html"><li>Central Asia</li></a>
+        <a href="/summit-seeker/client/southeastasia.html"><li>Southeast Asia</li></a>
+        <a href="/summit-seeker/client/australia.html"><li>Australia</li></a>
+        <a href="/summit-seeker/client/northamerica.html"><li>North America</li></a>
+        <a href="/summit-seeker/client/southamerica.html"><li>South America</li></a>
+        <a href="/summit-seeker/client/southpole.html"><li>South Pole</li></a>
+        <a href="/summit-seeker/client/himalaya.html"><li>Himalayas</li></a>
+
+      </ul>
+    </aside>
+
+    <div class="rightSideContainer">
+
+      <div id="mountain-container">
+        <div id="mountain-image-container">
+        </div>
+        <div id="mountain-info-container">
+
+      </div>
+      </div>
+
+      <div id="create-post-container">
+        <h2>Create post</h2>
+        <form action="http://localhost:3030/mountain.html" method="post"
+          enctype="multipart/form-data" id="postForm">
+          <label for="jtitle">Journey title:</label><br>
+          <input type="text" id="jtitle" name="jtitle" placeholder="Journey to.."><br><br>
+          <label for="jequipments">Used equipments:</label><br>
+          <textarea id="jequipments" name="jequipments" placeholder="Climbing helmet, ice axe.." rows="6" cols="35"></textarea><br><br>
+          <label for="jdescription">Whole story:</label><br>
+          <textarea id="jdescription" name="jdescription" placeholder="Greatest moments, difficulties, hard decisions, cost of the trip, was it worth it?.." rows="10" cols="65"></textarea><br><br>
+          <label for="jimage">Image of your journey:</label><br>
+          <input type="file" id="jimage" name="jimage" accept="image/*" placeholder="Choose file"><br><br>
+
+          <input type="submit" value="Submit your story!">
+        </form>
+      </div>
+
+      <div class="bottomRightContainer">
+        <article class="postHolder">
+          <div id="switchContainer">
+            <h4 id="switchHeader">Switch between most recent and most popular journeys</h4>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div id="postContainer">
+            <ol id="postList">
+              <!-- Js creates a list of posts here -->
+            </ol>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer><h1>Summit Seeker</h1></footer>
+
+</main>
+
+</body>
+</html>

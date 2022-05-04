@@ -7,6 +7,7 @@ const indexRoute = require("./routes/indexRoute");
 const mountainRoute = require("./routes/mountainRoute");
 const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
+const postRoute = require("./routes/postRoute");
 const passport = require("./utils/pass");
 const port = 3030;
 
@@ -19,6 +20,6 @@ app.use("/auth", authRoute);
 app.use("/", indexRoute);
 app.use("/user", passport.authenticate("jwt", {session: false}), userRoute);
 app.use("/mountains", passport.authenticate("jwt", {session: false}), mountainRoute);
-
+app.use("/mountain", postRoute);
 
 app.listen(port, () => console.log(`Listening on port: ${port}!`));
