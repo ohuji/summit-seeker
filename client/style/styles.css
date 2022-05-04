@@ -31,6 +31,11 @@ li  {
     font-family: 'Open Sans', sans-serif;
 }
 
+label   {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
 a   {
     text-decoration: none;
     color: var(--c-blue-dark1);
@@ -438,6 +443,40 @@ input:checked + .slider:before {
     text-decoration: underline;
 }
 
+
+/*-----------Mountain.html-------------*/
+
+#mountain-container {
+    flex-basis: 60vh;
+    display: flex;
+    flex-direction: row;
+}
+#mountain-image-container   {
+    flex: 1;
+    background-color: crimson;
+}
+#mountain-info-container    {
+    flex: 1;
+    background-color: #0000FF;
+}
+
+#create-post-container  {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7vh;
+    margin-left: 7vh;
+    margin-bottom: 7vh;
+}
+#create-post-container h2   {
+    margin: 0 0 3vh;
+}
+#create-post-container input[type=text], input[type=submit], textarea {
+    border: 2px solid var(--c-blue-dark4);
+    border-radius: 5px;
+}
+
+
 /*--------------Footer-----------------*/
 
 footer  {
@@ -457,6 +496,7 @@ footer  {
         flex-direction: column;
     }
 }
+
 
 @media only screen and (max-width: 850px)   {
 
