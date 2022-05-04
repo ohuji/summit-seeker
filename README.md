@@ -14,7 +14,7 @@ Project was made as a showcase of things learned in our web-development course.
 ## Setup
 Website is currently being hosted on a live server: [Link to the Website]()
 
-#### Running locally
+### Running locally
 
 Cloning the repository with Git installed.
 [Link to install Git](https://git-scm.com/downloads)
@@ -40,6 +40,7 @@ npm start
 ```
 
 As for database the tables can be put on any local MySQL hosting such as phpMyAdmin with XAMPP or something similar.
+
 [Link to install XAMPP](https://www.apachefriends.org/index.html)
 
 ## Technologies
