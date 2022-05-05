@@ -110,14 +110,6 @@ const renderPopularPosts = async () => {
   });
 
   popularList.innerHTML = html;
-
-  /*  // Goes through 10 posts and gives them style
-    for (let i = 0; i < 10; i++) {
-
-      // Sets style to shown posts
-      let currentPost = document.getElementById("popularPost" + i);
-      Object.assign(currentPost.style, postStyle);
-    }*/
 };
 
 const renderLatestPosts = async () => {
@@ -170,12 +162,16 @@ checkbox.addEventListener('change', function () {
 });
 
 
+// const uID = sessionStorage.getItem("user.ID");
+// console.log(uID);
 
 // Place existing html form element to variable
 const postForm = document.querySelector('#postForm');
 
 // Sends the post data to the backend
 postForm.addEventListener('submit', async (event) => {
+
+  const mID = localStorage.getItem("mID");
 
   console.log('jimage content in front js file: ', document.querySelector('#jimage'));
 
@@ -185,7 +181,7 @@ postForm.addEventListener('submit', async (event) => {
     headers:  {
       Authorization: 'Bearer ' + sessionStorage.getItem('token'),
     },
-  body: formData,
+  body: mID, formData,
   };
 
   const response = await fetch(url + '/mountain', fetchOptions); // ...tain, fetchOptions
