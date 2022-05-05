@@ -32,4 +32,7 @@ router.route("/southamerica")
 router.route("/southpole")
   .get(mountainController.get_southpole_mountains);
 
+router.route("/currentMountain")
+  .get(mountainController.get_current_mountain);
+
 module.exports = router;

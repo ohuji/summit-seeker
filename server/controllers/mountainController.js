@@ -47,6 +47,13 @@ const get_southpole_mountains = async (req, res) => {
   res.json(mountains);
 };
 
+const get_current_mountain = async (req, res) =>  {
+
+  const id = req.body.id;
+  const mountain = await mountainModel.getCurrentMountain(id, res);
+  res.json(mountain);
+}
+
 module.exports = {
   get_himalayan_mountains,
   get_european_mountains,
@@ -57,4 +64,5 @@ module.exports = {
   get_northamerican_mountains,
   get_southamerican_mountains,
   get_southpole_mountains,
+  get_current_mountain,
 }
