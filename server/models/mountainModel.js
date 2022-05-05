@@ -102,6 +102,17 @@ const getSouthPoleMountains = async (res) => {
   };
 };
 
+const getCurrentMountain = async (id, res) => {
+  try {
+    const [rows] = await promisePool.query('SELECT * FROM Mountains WHERE ID = ?', [id]);
+    return rows[0];
+  } catch (error) {
+    console.log('error', error);
+    res.status(500).json({ message: 'Something went wrong when getting the current mountain'});
+    return;
+  };
+};
+
 module.exports =  {
   getHimalayanMountains,
   getEuropeanMountains,
@@ -112,4 +123,5 @@ module.exports =  {
   getNorthAmericanMountains,
   getSouthAmericanMountains,
   getSouthPoleMountains,
+  getCurrentMountain,
 }

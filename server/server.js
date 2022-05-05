@@ -20,6 +20,7 @@ app.use("/auth", authRoute);
 app.use("/", indexRoute);
 app.use("/user", passport.authenticate("jwt", {session: false}), userRoute);
 app.use("/mountains", passport.authenticate("jwt", {session: false}), mountainRoute);
+app.use("/", mountainRoute);
 app.use("/mountain", postRoute);
 
 app.listen(port, () => console.log(`Listening on port: ${port}!`));

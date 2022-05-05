@@ -451,10 +451,17 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: row;
 }
+
 #mountain-image-container   {
     flex: 1;
     background-color: crimson;
 }
+#mountain-image {
+    z-index: 4;
+    width: 200px;
+    height: 200px;
+}
+
 #mountain-info-container    {
     flex: 1;
     background-color: #0000FF;
