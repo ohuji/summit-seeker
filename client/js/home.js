@@ -9,18 +9,6 @@ const postContainer = document.querySelector('#postContainer');
 const popularList = document.querySelector('#postList');
 const recentList = document.querySelector('#postList');
 
-// Applied to posts
-const postStyle = {
-  'border': '1px solid #1E1E24',
-  'border-radius': '5px',
-  'padding': '5px',
-  'margin': '10px',
-  'background-color': '#dde0e7',
-  'box-shadow': '9px 10px 5px -5px rgba(0,0,0,0.22)',
-  'display': 'flex',
-  'gap': '2vh',
-  'flex-direction': 'column'
-};
 
 const getMostPopular = async () => {
   try {
@@ -45,7 +33,6 @@ const getLatest = async () => {
 const renderPopularPosts = async () => {
   let popularPosts = await getMostPopular();
   let html = "";
-  let i = 0;
 
   /*
   Creates shown element containing little of post data
@@ -55,7 +42,7 @@ const renderPopularPosts = async () => {
   html += header;
 
   popularPosts.forEach(userPost => {
-    let segment = `<li id="popularPost${i}">
+    let segment = `<li id="popularPost">
       <div id="post-figure">
         <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
         <div id="post-titleContainer">
@@ -74,24 +61,22 @@ const renderPopularPosts = async () => {
     </li>`;
 
     html += segment;
-    i++;
   });
 
   popularList.innerHTML = html;
 
-  // Goes through 10 posts and gives them style
+/*  // Goes through 10 posts and gives them style
   for (let i = 0; i < 10; i++) {
 
     // Sets style to shown posts
     let currentPost = document.getElementById("popularPost" + i);
     Object.assign(currentPost.style, postStyle);
-  }
+  }*/
 };
 
 const renderLatestPosts = async () => {
   let latestPosts = await getLatest();
   let html = "";
-  let i = 0;
 
   /*
   Creates shown element containing little of post data
@@ -101,7 +86,7 @@ const renderLatestPosts = async () => {
   html += header;
 
   latestPosts.forEach(userPost => {
-    let segment = `<li id="latestPost${i}">
+    let segment = `<li id="latestPost">
       <div id="post-figure">
         <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
         <div id="post-titleContainer">
@@ -120,33 +105,10 @@ const renderLatestPosts = async () => {
     </li>`;
 
     html += segment;
-    i++;
   });
 
   recentList.innerHTML = html;
-
-  //Goes through 10 posts and gives them style
-  for (let i = 0; i < 10; i++) {
-
-    let currentPost = document.getElementById("latestPost" + i);
-
-    Object.assign(currentPost.style, postStyle);
-  };
 };
-
-/*const postContent = document.querySelector("#post-content");
-console.log(postContent);
-postContent.className = "inactive";
-
-const onClick = () => {
-  if (postContent.className === "active") {
-    postContent.className === "inactive";
-  } else {
-    postContent.className === "active"
-  }
-}
-
-postContent.addEventListener("click", onClick());*/
 
 renderLatestPosts();
 
@@ -180,6 +142,7 @@ const getUser = async () => {
 
 // Hidden elements handling.
 
+/*
 // Adds eventListener to profilePicture and listens for clicks.
 // If statement sets profileElement visible or hidden depending of isVisible variable.
 let profileIsVisible = false;
@@ -196,6 +159,7 @@ document.getElementById('profilePicture')
     profileIsVisible = false;
   }
 });
+*/
 
 
 // Handler for most recent/most popular posts slider.
