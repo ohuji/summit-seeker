@@ -11,15 +11,15 @@ const getCurrentMountain = async () => {
 
   // Mountain ID is got from localStorage and placed to variable
   const mountainID = localStorage.getItem('mID');
+  console.log(mountainID)
   try {
     const fetchOptions =  {
-      method: 'GET',
       headers:  {
         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
       },
-      body: mountainID,
     };
-  const res = await fetch(`${url}/currentMountain`, fetchOptions);
+
+  const res = await fetch(`${url}/mountains/${mountainID}`, fetchOptions);
 
   return await res.json();
   } catch (error) {
@@ -32,7 +32,7 @@ const renderCurrentMountain = async () => {
   let currentMountain = await getCurrentMountain();
   let html = '';
 
-  let imageElement = `<img src="../media/${currentMountain.Name}" id="mountain-image">`;
+  let imageElement = `<img src="./media/${currentMountain.Name}.jpg" id="mountain-image">`;
 
   html += imageElement;
   mountainImgContainer.innerHTML = html;
