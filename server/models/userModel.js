@@ -3,6 +3,7 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
+// Get username and hashed password, add user to db
 const addUser = async (username, hash, res) => {
     try {
         const [rows] = await promisePool.query(`INSERT INTO Users (Username, Password)
@@ -15,6 +16,7 @@ const addUser = async (username, hash, res) => {
     }
 };
 
+// get user for login
 const getUserLogin = async (params) => {
     try {
         const [rows] = await promisePool.execute(`SELECT * 

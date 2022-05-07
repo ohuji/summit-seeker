@@ -18,6 +18,8 @@ const fileFilter = (req, file, callback) => {
 // Location for multer to upload media
 const upload = multer({ destination: './uploads/', fileFilter});
 
+//Post routes
+
 router.route('/')
   .post(upload.single('jimage'), postController.create_post)
 

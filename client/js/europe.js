@@ -4,14 +4,17 @@ const url = "http://localhost:3030/";
 
 const getMountains = async () => {
     try {
+      // Check if token exists
       const fetchOptions = {
         headers: {
           Authorization: "bearer " + sessionStorage.getItem("token"),
         },
       };
 
+      // Fetch mountains
       const res = await fetch(`${url}mountains/europe`, fetchOptions);
       
+      // If 401 (token doesnt exist) route to login
       if (res.status === 401) {
         location.href = "/summit-seeker/client/login.html"
       } else {

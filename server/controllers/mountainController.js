@@ -2,6 +2,8 @@
 
 const mountainModel = require('../models/mountainModel');
 
+// Get mountains
+
 const get_himalayan_mountains = async (req, res) => {
   const mountains = await mountainModel.getHimalayanMountains(res);
   res.json(mountains);

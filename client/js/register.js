@@ -6,14 +6,15 @@ const url = "http://localhost:3030/auth/register";
 
 const regForm = document.querySelector("#register-form");
 
+/*
+    On click post username and password to register
+    after that reroute to home page.
+*/
 regForm.addEventListener("submit", async (evt) => {
     evt.preventDefault();
 
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
-
-    console.log(username);
-    console.log(password);
 
     const fetchOptions = {
         method: "POST",

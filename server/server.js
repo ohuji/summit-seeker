@@ -16,11 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
+// Use routes, JWT authentication for certain ones
 app.use("/auth", authRoute);
 app.use("/", indexRoute);
 app.use("/user", passport.authenticate("jwt", {session: false}), userRoute);
 app.use("/mountains", passport.authenticate("jwt", {session: false}), mountainRoute);
-app.use("/", passport.authenticate("jwt", {session: false}), mountainRoute);
 app.use("/mountain", passport.authenticate("jwt", {session: false}), postRoute);
 
 app.listen(port, () => console.log(`Listening on port: ${port}!`));
