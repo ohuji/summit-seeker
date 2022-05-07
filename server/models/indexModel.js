@@ -3,6 +3,7 @@
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
+// Function for retrieving 10 most liked posts from db
 const getPopularJourneys = async (res) => {
     try {
        const [rows] = await promisePool.query(`SELECT Userposts.ID,
@@ -33,6 +34,7 @@ const getPopularJourneys = async (res) => {
     }
 };
 
+// Function for retrieving 10 latest posts from db
 const getLatestJourneys = async (res) => {
     try {
        const [rows] = await promisePool.query(`SELECT Userposts.ID,

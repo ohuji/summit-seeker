@@ -2,6 +2,7 @@
 
 const url = "http://localhost:3030/auth/logout";
 
+// Logout, remove token and user from sessionStorage
 (async () => {
     try {
         const res = await fetch(url);

@@ -2,7 +2,7 @@
 
 const postModel = require('../models/postModel');
 
-
+// Create new post
 const create_post = async (req, res) => {
 
   const post = req.body;

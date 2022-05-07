@@ -117,3 +117,7 @@ dist
 #Node stuff
 node_modules
 node_modules/*
+
+#ssl keys and cretificates
+*.csr
+*.pem

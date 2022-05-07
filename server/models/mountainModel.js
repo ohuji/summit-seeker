@@ -3,6 +3,10 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
+/*
+  Retrieve mountains based on location
+*/
+
 const getHimalayanMountains = async (res) => {
   try {
     const [rows] = await promisePool.query(`SELECT * FROM Mountains WHERE Location = "Himalayas"`);
@@ -102,6 +106,7 @@ const getSouthPoleMountains = async (res) => {
   };
 };
 
+// Retrieve mountain info from db based on given id
 const getCurrentMountain = async (id, res) => {
   try {
     const [rows] = await promisePool.query('SELECT * FROM Mountains WHERE ID = ?', [id]);

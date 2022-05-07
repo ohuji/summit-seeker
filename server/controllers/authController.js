@@ -7,6 +7,7 @@ const userModel = require("../models/userModel");
 const {validationResult} = require("express-validator");
 require("dotenv").config();
 
+// Login function
 const login = (req, res, next) => {
     passport.authenticate("local", {session: false}, (err, user, info) => {
         if (err || !user) {
@@ -21,6 +22,7 @@ const login = (req, res, next) => {
                 res.send(err);
             }
 
+            // Sign JWT token
             const token = jwt.sign(user, process.env.JWT_SECRET);
 
             return res.json({user, token});
@@ -28,6 +30,7 @@ const login = (req, res, next) => {
     }) (req, res, next);
 };
 
+// Register function
 const create_user = async (req, res, next) => {
     const errors = validationResult(req);
 
@@ -35,8 +38,7 @@ const create_user = async (req, res, next) => {
         console.log("error with creating user", errors);
         res.send(errors.array());
     } else {
-        console.log(req.body.username);
-        console.log(req.body.password);
+        // Hash user password
         const hash = await bcrypt.hash(req.body.password, 10);
 
         let username = req.body.username;
@@ -51,6 +53,7 @@ const create_user = async (req, res, next) => {
     }
 };
 
+// Logout function
 const logout = (req, res) => {
     res.json({ message: "logged out" });
 }

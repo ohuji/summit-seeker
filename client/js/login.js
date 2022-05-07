@@ -27,6 +27,7 @@ logForm.addEventListener("submit", async (evt) => {
         }),
     };
 
+    // Fetch login, if ok add token and user to sessionStorage
     const res = await fetch(url, fetchOptions);
     const json = await res.json();
     if (!json.user) {

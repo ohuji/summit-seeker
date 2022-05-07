@@ -12,7 +12,7 @@ require("dotenv").config();
 passport.use(new Strategy(
     async (Username, Password, done) => {
         const params = [Username];
-        console.log("a:", params);
+        // Compare credentials and login if succesfull
         try {
             const [user] = await getUserLogin(params);
             console.log("u: ", user);

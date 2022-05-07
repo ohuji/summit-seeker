@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const mountainController = require('../controllers/mountainController');
 
+//Mountain routes
 
 router.route('/himalayan')
   .get(mountainController.get_himalayan_mountains);

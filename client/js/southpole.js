@@ -5,6 +5,7 @@ localStorage.removeItem("mID");
 const url = "http://localhost:3030/";
 
 const getMountains = async () => {
+    // Check if token exists
     try {
       const fetchOptions = {
         headers: {
@@ -12,8 +13,10 @@ const getMountains = async () => {
         },
       };
 
+      // Fetch mountains
       const res = await fetch(`${url}mountains/southpole`, fetchOptions);
       
+      // If 401 (token doesnt exist) route to login
       if (res.status === 401) {
         location.href = "/summit-seeker/client/login.html"
       } else {
