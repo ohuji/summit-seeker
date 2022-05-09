@@ -33,28 +33,32 @@ const renderCurrentMountainImg = async () => {
   let html = '';
 
   let imageElement = `<img src="./media/${currentMountain.Name}.jpg" id="mountain-image">`;
+
   html += imageElement;
   mountainImgContainer.innerHTML = html;
 };
+
 
 const renderCurrentMountainInfo = async () => {
   let currentMountain = await getCurrentMountain();
   let html = '';
 
-  let infoElement = `<li id="latestPost">
+  let infoElement = `<li id="mountain-info">
     <h2 id="mountain-name">${currentMountain.Name}</h2>
     <h2 id="mountain-difficulty">${currentMountain.Difficulty}</h2>
     <h2 id="mountain-height">${currentMountain.Height}</h2>
     <h2 id="mountain-location">${currentMountain.Location}</h2>
   </li>`;
+
+  console.log(currentMountain.Name);
+  console.log(currentMountain.Height);
+
   html += infoElement;
-
   mountainInfoContainer.innerHtml = html;
-}
+};
 
 
-const popularList = document.querySelector('#postList');
-const recentList = document.querySelector('#postList');
+const postList = document.querySelector('#postList');
 
 const getMostPopular = async () => {
   try {
@@ -95,7 +99,7 @@ const renderPopularPosts = async () => {
           <h4 id="post-title">${userPost.Title}</h4>
           <h4 id="post-username">${userPost.Username}</h4>
         </div>
-      </div> 
+      </div>
       <article id="post-article">          
         <p id="post-equipment">${userPost.Equipment}</p>
         <p id="post-description">${userPost.Description}</p>
@@ -109,7 +113,7 @@ const renderPopularPosts = async () => {
     html += segment;
   });
 
-  popularList.innerHTML = html;
+  postList.innerHTML = html;
 };
 
 const renderLatestPosts = async () => {
@@ -145,10 +149,8 @@ const renderLatestPosts = async () => {
     html += segment;
   });
 
-  recentList.innerHTML = html;
+  postList.innerHTML = html;
 };
-
-renderLatestPosts();
 
 
 // Handler for most recent/most popular posts slider.
@@ -171,20 +173,16 @@ const postForm = document.querySelector('#postForm');
 // Sends the post data to the backend
 postForm.addEventListener('submit', async (event) => {
 
-  const mID = localStorage.getItem("mID");
-
-  console.log('jimage content in front js file: ', document.querySelector('#jimage'));
-
   const formData = new FormData(postForm);
   const fetchOptions =  {
     method: 'POST',
     headers:  {
       Authorization: 'Bearer ' + sessionStorage.getItem('token'),
     },
-  body: mID, formData,
+  body: formData,
   };
 
-  const response = await fetch(url + '/mountain', fetchOptions); // ...tain, fetchOptions
+  const response = await fetch(url + '/mountain', fetchOptions);
   const json = await response.json();
   alert(json.message);
 
@@ -193,3 +191,4 @@ postForm.addEventListener('submit', async (event) => {
 
 renderCurrentMountainImg();
 renderCurrentMountainInfo();
+renderLatestPosts();

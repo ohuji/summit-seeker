@@ -3,13 +3,14 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
-const createPost = async (post, mID, res) => {
+// Inserts the users post into MySQL database
+const createPost = async (post, res) => {
   try {
     const [rows] = await promisePool.query(`INSERT INTO Userposts(
         MountainID, UserID, Title, Description, Equipment, Imagename) VALUES (?,?,?,?,?,?)`,
-        [mID, 6, post.jtitle, post.jdescription, post.jequipments, post.jimage]);
+        [2, 6, post.jtitle, post.jdescription, post.jequipments, post.jimage]);
 
-    /* Real one
+    /* One with working mountain- and userID
     const [rows] = await promisePool.query(`INSERT INTO Userposts(
         MountainID, UserID, Title, Description, Equipment, Imagename) VALUES (?,?,?,?,?,?)`,
         [post.MountainID, post.UserID, post.Title, post.Description, post.Equipment, post.Imagename]);

@@ -466,18 +466,27 @@ flex-direction: column;
 
 #mountain-image-container   {
     flex: 1;
-    background-color: crimson;
+    background-color: var(--c-blue-light1);
+    border-bottom: 1vh solid var(--c-blue-dark4);
 }
 #mountain-image {
-    z-index: 4;
     width: 100%;
     height: 100%;
 }
 
 #mountain-info-container    {
     flex: 1;
-    background-color: #0000FF;
+    background-color: var(--c-blue-dark2);
+    border-bottom: 1vh solid var(--c-blue-dark4);
 }
+
+#mountain-info  {
+    color: var(--c-blue-light1);
+}
+
+
+
+/*-------Post-creation--------*/
 
 #create-post-container  {
     flex: 1;
