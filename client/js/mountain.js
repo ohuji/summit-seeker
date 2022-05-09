@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:3030';
+const url = 'http://10.114.32.78/app';
 
 const mountainImgContainer = document.querySelector('#mountain-image-container');
 const mountainInfoContainer = document.querySelector('#mountain-info-container');
@@ -186,7 +186,7 @@ postForm.addEventListener('submit', async (event) => {
   const json = await response.json();
   alert(json.message);
 
-  location.href = 'mountain.html';
+  location.href = 'http://10.114.32.78/~remy/summit-seeker/client/mountain.html';
 });
 
 renderCurrentMountainImg();

@@ -2,7 +2,7 @@
 
 localStorage.removeItem("mID");
 
-const url = "http://localhost:3030/";
+const url = "http://10.114.32.78/app/";
 
 const getMountains = async () => {
     try {
@@ -15,7 +15,7 @@ const getMountains = async () => {
       const res = await fetch(`${url}mountains/africa`, fetchOptions);
       
       if (res.status === 401) {
-        location.href = "/summit-seeker/client/login.html"
+        location.href = "/~remy/summit-seeker/client/login.html"
       } else {
         return await res.json();
       }

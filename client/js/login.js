@@ -2,7 +2,7 @@
 
 localStorage.removeItem("mID");
 
-const url = "http://localhost:3030/auth/login";
+const url = "http://10.114.32.78/app/auth/login";
 
 const logForm = document.querySelector("#login-form");
 
@@ -34,6 +34,6 @@ logForm.addEventListener("submit", async (evt) => {
     } else {
         sessionStorage.setItem("token", json.token);
         sessionStorage.setItem("user", JSON.stringify(json.user));
-        location.href = "/summit-seeker/client";
+        location.href = "http://10.114.32.78/~remy/summit-seeker/client";
     }
 });

@@ -2,7 +2,7 @@
 
 localStorage.removeItem("mID");
 
-const url = "http://localhost:3030/auth/register";
+const url = "http://10.114.32.78/app/auth/register";
 
 const regForm = document.querySelector("#register-form");
 
@@ -30,5 +30,5 @@ regForm.addEventListener("submit", async (evt) => {
     const res = await fetch(url, fetchOptions);
     const json = await res.json();
     alert(json.message);
-    location.href = "/summit-seeker/client";
+    location.href = "http://10.114.32.78/~remy/summit-seeker/client";
 });

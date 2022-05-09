@@ -1,6 +1,6 @@
 "use strict";
 
-const url = "http://localhost:3030/";
+const url = "http://10.114.32.78/app/";
 
 const getMountains = async () => {
     try {
@@ -13,7 +13,7 @@ const getMountains = async () => {
       const res = await fetch(`${url}mountains/europe`, fetchOptions);
       
       if (res.status === 401) {
-        location.href = "/summit-seeker/client/login.html"
+        location.href = "http://10.114.32.78/~remy/summit-seeker/client/login.html"
       } else {
         return await res.json();
       }
@@ -30,7 +30,7 @@ const renderMountains = async () => {
   
     latestPosts.forEach(mountain => {
       let segment = `<div class="mountain-card" id="${mountain.ID}"
-        onclick='localStorage.setItem("mID", this.id), location.href = "/summit-seeker/client/mountain.html"'>
+        onclick='localStorage.setItem("mID", this.id), location.href = "http://10.114.32.78/~remy/summit-seeker/client/mountain.html"'>
         <img src="./media/${mountain.Name}.jpg"
         alt="picture of a mountain"></img>
         <div class="mountain-card-info">

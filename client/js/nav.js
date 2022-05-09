@@ -14,9 +14,9 @@ if (!user) {
 
 const iconClick = () => {
     if (!user) {
-        location.href = "/summit-seeker/client/login.html";
+        location.href = "http://10.114.32.78/~remy/summit-seeker/client/login.html";
     } else {
-        location.href = "/summit-seeker/client/logout.html";
+        location.href = "http://10.114.32.78/~remy/summit-seeker/client/logout.html";
     };
 };
 

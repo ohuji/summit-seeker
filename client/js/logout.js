@@ -1,6 +1,6 @@
 "use strict";
 
-const url = "http://localhost:3030/auth/logout";
+const url = "http://10.114.32.78/app/auth/logout";
 
 (async () => {
     try {
@@ -11,7 +11,7 @@ const url = "http://localhost:3030/auth/logout";
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
 
-        location.href = "/summit-seeker/client";
+        location.href = "http://10.114.32.78/~remy/summit-seeker/client";
     } catch (e) {
         console.log(e.message);
     }

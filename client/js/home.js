@@ -3,7 +3,7 @@
 localStorage.removeItem("mID");
 
 // Posts
-const url = 'http://localhost:3030';
+const url = 'http://10.114.32.78/app';
 
 const postContainer = document.querySelector('#postContainer');
 const popularList = document.querySelector('#postList');
@@ -113,55 +113,6 @@ const renderLatestPosts = async () => {
 renderLatestPosts();
 
 
-/*
-// ---- Checks if admin ----
-// maybe useless
-
-const checkIfAdmin = (user) => {
-
-  if (user.role === 2)  {
-    let adminElement = document.getElementById('admin');
-    adminElement.style.display = 'block';
-  }
-}
-
-const getUser = async () => {
-  try {
-    const response = await fetch(`${url}/user`);
-    const user = await response.json();
-    checkIfAdmin(user);
-  } catch (error) {
-    console.log(error.message);
-
-    return
-  }
-};
-*/
-
-
-
-// Hidden elements handling.
-
-/*
-// Adds eventListener to profilePicture and listens for clicks.
-// If statement sets profileElement visible or hidden depending of isVisible variable.
-let profileIsVisible = false;
-let profileElement = document.getElementById('profile');
-
-document.getElementById('profilePicture')
-.addEventListener('click', function() {
-
-  if (profileIsVisible === false) {
-    profileElement.style.display = 'block';
-    profileIsVisible = true;
-  } else {
-    profileElement.style.display = 'none';
-    profileIsVisible = false;
-  }
-});
-*/
-
-
 // Handler for most recent/most popular posts slider.
 let checkbox = document.querySelector('input[type="checkbox"]');
 checkbox.addEventListener('change', function () {
@@ -171,59 +122,3 @@ checkbox.addEventListener('change', function () {
     renderPopularPosts();
   }
 });
-
-
-
-/*
-* !! UNFINISHED !!
-* onClick handler for hidden posts
-*
-* Tried to fetch the number of post and check which one of the post were clicked
-* so that we could make the bigger post unhidden
-* didn't work
-
-const onClick = (event) =>  {
-  const clickedPost = event.target.id;
-
-  console.log(clickedPost);
-
-  if (clickedPost.includes('popularPost' || 'latestPost'))  {
-    const child = event.target.document.getElementById('post-content');
-    console.log('Child elem', child);
-
-    if (child.className = 'inactive')  {
-      child.className = 'active';
-    } else  {
-      child.className = 'inactive';
-    }
-  }
-};
-window.addEventListener('click', onClick);
- */
-
-
-
-
-/*
-!! UNFINISHED !!
-HANDLER TO OPEN SIDEBAR WITH HAMBURGER ICON
- */
-/*
-let sidebarIsVisible = false;
-let sidebarElement = document.getElementById('slide');
-
-// Adds eventListener to hamburgerIcon and listens for clicks.
-document.getElementById('hamburgerIcon')
-.addEventListener("click", function() {
-
-  if sidebarIsVisible === false) {
-    sidebarElement.style.display = 'block';
-    sidebarElement.toggle('clicked');
-    sidebarIsVisible = true;
-  } else {
-    sidebarElement.style.display = 'none';
-    sidebarElement.toggle('clicked');
-    sidebarIsVisible = false;
-  }
-});
- */
