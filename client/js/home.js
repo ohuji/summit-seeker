@@ -44,7 +44,7 @@ const renderPopularPosts = async () => {
   popularPosts.forEach(userPost => {
     let segment = `<li id="popularPost">
       <div id="post-figure">
-        <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+        <img src="http://10.114.32.78/~remy/summit-seeker/server/uploads/${userPost.Imagename}" id="post-image">
         <div id="post-titleContainer">
           <h4 id="post-title">${userPost.Title}</h4>
           <h4 id="post-username">${userPost.Username}</h4>
@@ -88,7 +88,7 @@ const renderLatestPosts = async () => {
   latestPosts.forEach(userPost => {
     let segment = `<li id="latestPost">
       <div id="post-figure">
-        <img src="../../server/uploads/${userPost.Imagename}" id="post-image">
+        <img src="http://10.114.32.78/~remy/summit-seeker/server/uploads/${userPost.Imagename}" id="post-image">
         <div id="post-titleContainer">
           <h4 id="post-title">${userPost.Title}</h4>
           <h4 id="post-username">${userPost.Username}</h4>
