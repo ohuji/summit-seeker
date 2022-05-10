@@ -30,9 +30,11 @@ passport.use(new Strategy(
                 return done(null, false, { message: "incorrect credentials" });
             }
 
+          console.log('{...user}: ', {...user});
+
             delete user.Password;
 
-          console.log('{...user}: ', {...user});
+          console.log('{...user}2: ', {...user});
 
             return done(null, {...user}, { message: "logged in" });
         } catch (err) {
