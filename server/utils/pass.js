@@ -21,12 +21,12 @@ passport.use(new Strategy(
                 return done(null, false, { message: "incorrect credentials" });
             }
 
-            console.log('user.password outside of compare: ', user.password);
-            console.log('password outside of compare: ', password);
+            console.log('user.password outside of compare: ', user.Password);
+            console.log('password outside of compare: ', Password);
 
             if (!await bcrypt.compare(Password, user.Password)) {
-              console.log('user.password inside of compare: ', user.password);
-              console.log('password inside of compare: ', password);
+              console.log('user.password inside of compare: ', user.Password);
+              console.log('password inside of compare: ', Password);
                 return done(null, false, { message: "incorrect credentials" });
             }
 
