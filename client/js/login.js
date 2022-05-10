@@ -12,9 +12,6 @@ logForm.addEventListener("submit", async (evt) => {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 
-    console.log(username);
-    console.log(password);
-
     const fetchOptions = {
         method: "POST",
         headers: {

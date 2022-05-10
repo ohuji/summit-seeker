@@ -9,6 +9,9 @@ require("dotenv").config();
 
 const login = (req, res, next) => {
     passport.authenticate("local", {session: false}, (err, user, info) => {
+
+        console.log(user);
+        
         if (err || !user) {
             return res.status(400).json({
                 message: "something went wrong with login",
