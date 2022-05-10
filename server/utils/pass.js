@@ -32,6 +32,8 @@ passport.use(new Strategy(
 
             delete user.Password;
 
+          console.log('{...user}: ', {...user});
+
             return done(null, {...user}, { message: "logged in" });
         } catch (err) {
             return done(err);
