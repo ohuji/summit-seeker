@@ -16,11 +16,17 @@ passport.use(new Strategy(
         try {
             const [user] = await getUserLogin(params);
             console.log("u: ", user);
+
             if (user === undefined) {
                 return done(null, false, { message: "incorrect credentials" });
             }
 
+            console.log('user.password outside of compare: ', user.password);
+            console.log('password outside of compare: ', password);
+
             if (!await bcrypt.compare(Password, user.Password)) {
+              console.log('user.password inside of compare: ', user.password);
+              console.log('password inside of compare: ', password);
                 return done(null, false, { message: "incorrect credentials" });
             }
 
