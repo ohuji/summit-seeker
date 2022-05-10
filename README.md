@@ -5,6 +5,8 @@ Project was made as a showcase of things learned in our web-development course.
 
 [Link to the Website](http://10.114.32.78/~remy/summit-seeker/client/index.html)
 
+(Production link works only with Metropolia VPN)
+
 ## Table of Contents
 * [Setup](#Setup)
 * [Technologies](#Technologies)
@@ -14,7 +16,7 @@ Project was made as a showcase of things learned in our web-development course.
 ## Setup
 Website is currently being hosted on a live server: [Link to the Website](http://10.114.32.78/~remy/summit-seeker/client/index.html)
 
-Unfortunately login is not working in production and due to that you cannot access some of the pages.
+(Production link works only with Metropolia VPN)
 
 ### Running locally
 
