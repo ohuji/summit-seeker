@@ -3,7 +3,7 @@ Summit-Seeker is a website made for mountaineers to share their experiences in d
 
 Project was made as a showcase of things learned in our web-development course.
 
-[Link to the Website]()
+[Link to the Website](http://10.114.32.78/~remy/summit-seeker/client/index.html)
 
 ## Table of Contents
 * [Setup](#Setup)
@@ -12,7 +12,9 @@ Project was made as a showcase of things learned in our web-development course.
 
 
 ## Setup
-Website is currently being hosted on a live server: [Link to the Website]()
+Website is currently being hosted on a live server: [Link to the Website](http://10.114.32.78/~remy/summit-seeker/client/index.html)
+
+Unfortunately login is not working in production and due to that you cannot access some of the pages.
 
 ### Running locally
 
@@ -57,7 +59,7 @@ This website was built using the following main technologies:
 - Version Control
   - Git & Github
 
-Other miscellaneous stuff:
+Other miscellaneous stuff: CentOS based Linux production server
 
 ## Contributors
 Juho Salomäki [Link to Github page](https://github.com/ohuji/)
